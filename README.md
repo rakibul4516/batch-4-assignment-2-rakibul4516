@@ -76,7 +76,7 @@ This Car Store Management API allows users to manage cars. The API supports oper
 ```json
 {
   "email": "customer@example.com",
-  "id": "carId",
+  "id": "6740f04ff5c81e36766f72ea",
   "quantity": 2,
   "totalPrice": 50000
 }
