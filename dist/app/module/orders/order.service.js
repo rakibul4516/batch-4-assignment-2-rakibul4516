@@ -14,15 +14,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.orderService = void 0;
 const order_model_1 = __importDefault(require("./order.model"));
-//Create a new order 
+//Create a new order
 const createOrderData = (payload) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const result = yield order_model_1.default.create(payload);
-        return result;
-    }
-    catch (error) {
-        throw error;
-    }
+    const result = yield order_model_1.default.create(payload);
+    return result;
 });
 exports.orderService = {
     createOrderData,

@@ -1,16 +1,12 @@
-import IOrder from './order.interface';
-import orderModel from './order.model'
+import IOrder from "./order.interface";
+import orderModel from "./order.model";
 
-//Create a new order 
+//Create a new order
 const createOrderData = async (payload: IOrder) => {
-    try {
-      const result = await orderModel.create(payload);
-      return result;
-    } catch (error) {
-      throw error;
-    }
-  };
+  const result = await orderModel.create(payload);
+  return result;
+};
 
-  export const orderService = {
-    createOrderData,
-  }
+export const orderService = {
+  createOrderData,
+};

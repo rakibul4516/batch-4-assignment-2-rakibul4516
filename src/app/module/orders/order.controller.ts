@@ -54,17 +54,17 @@ const createOrder = async (
       message: "Order created successfully",
       data: order,
     });
-  } catch (error: any) {
+  } catch (error) {
     res.status(500).json({
       success: false,
       message: "Failed to create order",
-      error: error.message,
+      error: error
     });
   }
 };
 
 // Get total price of all orders
-const getOrders = async (req: any, res: any) => {
+const getOrders = async (req: Request, res: Response) => {
   try {
     // Implement mongoose aggregation
     const result = await Order.aggregate([
@@ -94,11 +94,11 @@ const getOrders = async (req: any, res: any) => {
       message: "Revenue calculated successfully",
       totalPrice,
     });
-  } catch (error: any) {
+  } catch (error) {
     res.status(500).json({
       success: false,
       message: "Failed to calculate revenue",
-      error: error.message,
+      error: error,
     });
   }
 };

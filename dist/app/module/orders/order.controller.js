@@ -61,7 +61,7 @@ const createOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         res.status(500).json({
             success: false,
             message: "Failed to create order",
-            error: error.message,
+            error: error
         });
     }
 });
@@ -99,7 +99,7 @@ const getOrders = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.status(500).json({
             success: false,
             message: "Failed to calculate revenue",
-            error: error.message,
+            error: error,
         });
     }
 });

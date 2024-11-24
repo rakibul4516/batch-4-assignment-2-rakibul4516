@@ -16,55 +16,30 @@ exports.carServices = void 0;
 const car_model_1 = __importDefault(require("./car.model"));
 //Create a data
 const createCarData = (payload) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const result = yield car_model_1.default.create(payload);
-        return result;
-    }
-    catch (error) {
-        throw error;
-    }
+    const result = yield car_model_1.default.create(payload);
+    return result;
 });
 //Get all data method
 const getAllCarData = (...args_1) => __awaiter(void 0, [...args_1], void 0, function* (filter = {}) {
-    try {
-        const result = yield car_model_1.default.find(filter);
-        return result;
-    }
-    catch (error) {
-        throw error;
-    }
+    const result = yield car_model_1.default.find(filter);
+    return result;
 });
 //Get single data method
 const getSingleCarData = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const result = yield car_model_1.default.findById(id);
-        return result;
-    }
-    catch (error) {
-        throw error;
-    }
+    const result = yield car_model_1.default.findById(id);
+    return result;
 });
 //Update data method
 const updateCarData = (id, payload) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const result = yield car_model_1.default.findByIdAndUpdate(id, payload, {
-            new: true,
-        });
-        return result;
-    }
-    catch (error) {
-        throw error;
-    }
+    const result = yield car_model_1.default.findByIdAndUpdate(id, payload, {
+        new: true,
+    });
+    return result;
 });
 //Delete Data method
 const deleteCarData = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const result = yield car_model_1.default.findByIdAndDelete(id);
-        return result;
-    }
-    catch (error) {
-        throw error;
-    }
+    const result = yield car_model_1.default.findByIdAndDelete(id);
+    return result;
 });
 exports.carServices = {
     createCarData,
