@@ -19,4 +19,11 @@ app.get("/", (req, res) => {
     console.log(req.body);
     res.send("Server is running.....");
 });
+//Route mistake or not found
+app.all("*", (req, res) => {
+    res.status(400).json({
+        success: false,
+        message: "Route not found",
+    });
+});
 exports.default = app;

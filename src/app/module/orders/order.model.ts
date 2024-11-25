@@ -5,7 +5,14 @@ const orderSchema = new Schema<IOrder>(
   {
     email: {
       type: String,
-      required: [true, "Provide a valid email like 'rakibulislam@gmail.com'"],
+      required: true,
+      validate: {
+        validator: function (email) {
+          // Basic email validation
+          return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+        },
+        message:`This is not a valid email. Provide a valid email like 'rakibulislam@gmail.com'`
+      },
     },
     car: {
       type: String,
@@ -19,7 +26,7 @@ const orderSchema = new Schema<IOrder>(
     },
     totalPrice: {
       type: Number,
-      required: [true,"totalPrice must be a positive number"]
+      required: [true, "totalPrice must be a positive number"],
     },
   },
   {
