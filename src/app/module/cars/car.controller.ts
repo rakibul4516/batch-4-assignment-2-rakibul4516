@@ -108,6 +108,7 @@ const deleteCar = async (req: Request, res: Response) => {
     });
   }
 };
+
 export const carController = {
   createCar,
   getSingleCar,

@@ -23,17 +23,19 @@ const createOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         // Find the car by id
         const findCar = yield car_model_1.default.findById(car);
         if (!findCar) {
-            return res.status(404).json({
+            res.status(404).json({
                 success: false,
                 message: "Car not found",
             });
+            return;
         }
         // Use condition to check stock available or unavailable
         if (!findCar.inStock || findCar.quantity < quantity) {
-            return res.status(400).json({
+            res.status(400).json({
                 success: false,
                 message: "Insufficient stock",
             });
+            return;
         }
         //Update the quantity from database
         findCar.quantity -= quantity;
@@ -50,7 +52,6 @@ const createOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         };
         //Create a new order
         const order = yield order_model_1.default.create(orderData);
-        console.log(order);
         res.status(200).json({
             success: true,
             message: "Order created successfully",
@@ -61,7 +62,7 @@ const createOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         res.status(500).json({
             success: false,
             message: "Failed to create order",
-            error: error
+            error: error,
         });
     }
 });

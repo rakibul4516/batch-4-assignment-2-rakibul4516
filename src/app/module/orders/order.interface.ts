@@ -1,5 +1,3 @@
-
-
 interface IOrder {
   email: string;
   car: string;
@@ -8,6 +6,5 @@ interface IOrder {
   createdAt?: Date;
   updatedAt?: Date;
 }
-
 
 export default IOrder;

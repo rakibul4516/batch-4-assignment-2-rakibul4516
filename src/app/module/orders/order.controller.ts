@@ -3,10 +3,7 @@ import Car from "../cars/car.model";
 import { Request, Response } from "express";
 
 // Create a new order
-const createOrder = async (
-  req: Request,
-  res: Response
-): Promise<Response | undefined> => {
+const createOrder = async (req: Request, res: Response): Promise<void> => {
   try {
     //Destructured data
     const { email, car, quantity, totalPrice } = req.body;
@@ -15,18 +12,20 @@ const createOrder = async (
     const findCar = await Car.findById(car);
 
     if (!findCar) {
-      return res.status(404).json({
+      res.status(404).json({
         success: false,
         message: "Car not found",
       });
+      return;
     }
 
     // Use condition to check stock available or unavailable
     if (!findCar.inStock || findCar.quantity < quantity) {
-      return res.status(400).json({
+      res.status(400).json({
         success: false,
         message: "Insufficient stock",
       });
+      return;
     }
 
     //Update the quantity from database
@@ -48,7 +47,6 @@ const createOrder = async (
 
     //Create a new order
     const order = await Order.create(orderData);
-    console.log(order);
     res.status(200).json({
       success: true,
       message: "Order created successfully",
@@ -58,7 +56,7 @@ const createOrder = async (
     res.status(500).json({
       success: false,
       message: "Failed to create order",
-      error: error
+      error: error,
     });
   }
 };

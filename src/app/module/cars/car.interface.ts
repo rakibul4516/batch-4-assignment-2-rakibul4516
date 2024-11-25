@@ -7,6 +7,6 @@ export interface ICar {
   description: string;
   quantity: number;
   inStock: boolean;
-  createdAt?: Date; 
+  createdAt?: Date;
   updatedAt?: Date;
 }
